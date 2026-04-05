@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PatternBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="app-title">
+      <header class="app-header">
+        <h1 id="app-title">PatternBridge</h1>
+        <p class="subtitle">
+          Learn to recognize classic algorithmic patterns inside real-world problems
+        </p>
+      </header>
+
+      <section class="app-layout" aria-label="PatternBridge workspace">
+        <aside class="problem-sidebar" aria-label="Problem selector">
+          <h2 class="panel-title">Problems</h2>
+
+          <div class="filter-box">
+            <label for="problem-search" class="filter-label">Search Problems</label>
+            <input
+              id="problem-search"
+              class="filter-input"
+              type="search"
+              placeholder="Search title, category, or pattern"
+              autocomplete="off"
+            />
+          </div>
+
+          <div id="problem-list-root"></div>
+        </aside>
+
+        <section class="problem-main" aria-live="polite">
+          <div id="problem-detail-root"></div>
+        </section>
+      </section>
+
+      <footer class="project-footer" aria-label="About PatternBridge">
+        <article class="footer-card">
+          <h2 class="footer-title">About PatternBridge</h2>
+          <p>
+            PatternBridge is a focused frontend project for training algorithmic pattern
+            recognition in realistic engineering scenarios. It helps learners move from
+            system-flavored problem statements to canonical algorithm templates.
+          </p>
+          <p>
+            This transfer skill matters in software engineering interviews and AI
+            evaluation workflows, where strong reasoning often depends on mapping noisy,
+            contextual prompts into the right underlying abstraction.
+          </p>
+        </article>
+
+        <article class="footer-card">
+          <h2 class="footer-title">How To Use</h2>
+          <ol class="howto-list">
+            <li>Read the real-world problem first.</li>
+            <li>Infer the hidden algorithmic pattern before revealing hints.</li>
+            <li>Reveal guidance gradually to test your reasoning transfer.</li>
+            <li>Compare the mapping with the classic template and approach.</li>
+          </ol>
+        </article>
+      </footer>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
