@@ -1,91 +1,86 @@
-# Stock Data Analyzer
+# PatternBridge
 
-Stock Data Analyzer is a beginner-friendly Python project that compares multiple stocks using real market data from Yahoo Finance.
+PatternBridge is a lightweight, data-driven frontend app for learning how to map real-world engineering scenarios to classic algorithmic patterns.
 
-## Project Overview
-This project helps you practice basic financial data analysis with Python.
-You enter ticker symbols (like `AAPL,MSFT,GOOG`), and the script:
+## Motivation
+In interviews and practical engineering work, the hardest part is often not coding syntax - it is recognizing the right abstraction. PatternBridge is designed to train that transfer skill intentionally:
 
-- downloads 1 year of daily data
-- builds a combined close-price table
-- calculates daily returns
-- computes a correlation matrix
-- plots normalized price trends and a correlation heatmap
+- Start from a software-flavored problem statement.
+- Infer the hidden algorithmic template.
+- Reveal guidance progressively.    
+- Compare your mental model with the canonical pattern.
 
-The goal is to learn analysis workflow, not to build a production trading system.
+## Why This Is Relevant To AI Evaluation
+AI systems are frequently tested on whether they can generalize reasoning across domains, not just repeat known prompts. PatternBridge mirrors this challenge by framing standard algorithm problems in realistic engineering language.
 
-## Features
-- Multi-ticker input from terminal (`AAPL,MSFT,GOOG` style)
-- Invalid ticker handling with warning messages
-- Combined close-price DataFrame for valid tickers
-- Daily return calculation (% change)
-- Correlation matrix of daily returns
-- Normalized price comparison chart (all start at 100)
-- Correlation heatmap for diversification intuition
-- Clean, readable terminal output sections
+This makes the project relevant for:
 
-## Installation
-1. Open a terminal in this folder (`AI Project/Stock Data Analyzer`).
-2. (Optional but recommended) Create and activate a virtual environment.
-3. Install dependencies:
+- AI evaluation design focused on reasoning transfer
+- Prompt and benchmark design for abstraction quality
+- Software engineering interview preparation with scenario-based framing
 
-```bash
-pip install -r requirements.txt
-```
+## Core Features
+- Multi-problem selector with integrated search (title/category/pattern/technique/difficulty)
+- Data-driven rendering from a single JavaScript problem array
+- Progressive reveal workflow for hints and solution layers
+- Reveal progress tracking (`Revealed X / 6 sections`)
+- `Reveal All Sections` and `Collapse All Hints` controls
+- Dynamic transfer-note panel explaining real-world to algorithm mapping
+- Difficulty labels for quick cognitive load estimation
+- Responsive layout for desktop and mobile
 
-## Example Usage
-Run the script:
+## Algorithmic Patterns Covered
+- Unweighted Shortest Path (BFS)
+- Topological Ordering (Indegree + Queue)
+- Binary Search on Answer (Monotonic Feasibility)
+- Duplicate Detection (Hash Set)
+- Longest Valid Window (Sliding Window)
 
-```bash
-python main.py
-```
-
-When prompted, enter comma-separated tickers:
-
-```txt
-AAPL,MSFT,GOOG
-```
-
-The script will then print summary tables and open charts.
-
-## Financial Concepts Used (Beginner Version)
-- **Ticker Symbol**
-  - A short market code for a company (example: `AAPL` for Apple).
-
-- **Close Price**
-  - The final traded price for a stock on a trading day.
-
-- **Daily Return (%)**
-  - Day-to-day percentage change in close price.
-  - Formula: `(today_close / yesterday_close - 1) * 100`.
-
-- **Normalized Price**
-  - Rescales each stock to start at 100 on the first date.
-  - Useful for comparing relative growth across stocks with different price levels.
-
-- **Correlation**
-  - Measures how similarly two stocks move.
-  - `+1`: move together strongly, `0`: weak linear relationship, `-1`: move in opposite directions.
-
-- **Diversification (basic idea)**
-  - Combining lower-correlated stocks can reduce overall portfolio risk.
+## Tech Stack
+- HTML5 (semantic structure)
+- CSS3 (responsive layout, design tokens, accessibility-friendly focus states)
+- Vanilla JavaScript (state + render flow, no frameworks)
 
 ## Project Structure
 
 ```txt
-Stock Data Analyzer/
-├── main.py           # Main script: input, download, calculations, charts
-├── requirements.txt  # Python dependencies
-└── README.md         # Project documentation
+PatternBridge/
+├── index.html   # App shell, landmarks, footer/about
+├── style.css    # Design system, layout, responsive styles
+├── script.js    # Problem data, state management, rendering logic
+└── README.md
 ```
 
-## What I Learned Building This
-- How to collect market data programmatically with `yfinance`
-- How to combine and align multiple stock time series using `pandas`
-- How to compute daily returns and interpret correlation
-- How to visualize time series and heatmaps with `matplotlib`
-- How to structure a small analysis script into clear helper functions
+## How To Run Locally
+1. Clone or download this repository.
+2. Open `index.html` in any modern browser.
+3. No install step, build step, or server setup required.
 
-## Notes
-- This is an educational project, not financial advice.
-- Market data availability depends on Yahoo Finance responses and network access.
+## How To Add A New Problem
+1. Open `script.js`.
+2. Add a new object to the `problems` array with the same schema:
+   - `id`, `title`, `category`, `difficulty`
+   - `patternName`, `coreTechnique`, `transferNote`
+   - `problemStatement`, `constraints`, `example`
+   - `topicHint`, `standardProblem`, `mappingExplanation`, `solutionApproach`
+   - `codeSolution`, `complexity`, `edgeCases`
+3. Save and refresh the page.
+4. The selector, metadata chips, reveal flow, and search will work automatically.
+
+## Why This Is A Strong Software-Engineering Challenge Design Sample
+- Demonstrates clear decomposition between data model, UI state, and rendering helpers
+- Shows thoughtful UX for educational progression rather than visual noise
+- Balances extensibility with implementation simplicity (no overengineering)
+- Uses deterministic frontend behavior suitable for evaluator-facing demos
+- Presents algorithmic reasoning in a practical product context
+
+## Future Improvements (Intentionally Lightweight)
+- Add optional category quick-filters alongside search
+- Add URL hash support for shareable deep links to specific problems
+- Add a compact "session summary" of which sections were revealed
+- Add optional dark theme while preserving accessibility contrast
+
+## Professional Highlights
+- Built as a static, framework-free educational interface with maintainable architecture
+- Emphasizes reasoning transfer, a key competency for both interviews and AI benchmark design
+- Designed with accessibility and readability as first-class UX goals
